@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Readme</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>内部类笔记</h1>
+<p>在类内部定义的类,并且在类中声明成一个成员,那么这个类就是内部类.</p>
+<p>没有用static修饰的成员内部类被称之为实例内部类,static修饰的称之为静态内部类.</p>
+<h2>成员内部类|实例内部类</h2>
+<h3>源码：</h3>
+<blockquote>
+<pre><code>OuterClass.java
+</code></pre>
+
+</blockquote>
+<pre><code>package InnerClassPratice.inner;
+
+public class OuterClass {
+    public class InnerClass{
+        public void showInner(){
+            System.out.println(&quot;执行了OuterClass中的InnerClass内部类的方法&quot;);
+        }
+    }
+}
+</code></pre>
+
+<blockquote>
+<pre><code>MainDemo.java
+</code></pre>
+
+</blockquote>
+<pre><code>package InnerClassPratice.inner;
+
+public class MainDemo {
+    public static void main(String[] args) {
+        new OuterClass().new InnerClass().showInner();
+    }
+}
+</code></pre>
+
+<h2>定义方法</h2>
+<blockquote>
+<p>参考Outer.java可知,内部类就是一个定义在类内部的类,可以在类内方法中直接创建局部对象.</p>
+<p>比如:</p>
+</blockquote>
+<pre><code>    public class Outer1{
+        public class Inner {
+            public class InnerClass(){
+            void ShowMethod(){
+                System.out.println(&quot;执行了内部类的方法&quot;)
+            }
+            }
+        }
+
+        void innerTest(){
+        new InnerClass().ShowMethod()
+        }
+    }
+</code></pre>
+
+<blockquote>
+<p>也可以定义一个成员内部类后,建立一个成员对象.</p>
+<p>比如</p>
+</blockquote>
+<pre><code>    public class Outer1{
+        Inner obj= new Inner();
+
+
+        public class Inner {
+                public class InnerClass(){
+                    void ShowMethod(){
+                        System.out.println(&quot;执行了内部类的方法&quot;)
+                    }
+                }
+            }
+}
+</code></pre>
+
+<blockquote>
+<p>如果过是想在外部类外部创建对象,则需要使用外部类创建一个对象,通过这个对象来创建这个类.
+方式如下:</p>
+<p>1先创建一个外部类对象</p>
+</blockquote>
+<pre><code>Outer1 obj=new Outer1()
+</code></pre>
+
+<blockquote>
+<p>2通过这个对象创建成员内部类</p>
+</blockquote>
+<pre><code>obj.InnerClass innerObj=obj.new InnerClass()
+</code></pre>
+
+<blockquote>
+<p>3调用这个类的方法</p>
+</blockquote>
+<pre><code>innerObj.ShowMethod()
+</code></pre>
+
+<blockquote>
+<p>连续简洁地一次表达方式如下:</p>
+</blockquote>
+<pre><code>Outer1.InnerClas innerObj= new Outer1().new InnerClas()
+</code></pre>
+
+<h2>成员内部类|静态内部类</h2>
+<h3>源码</h3>
+<blockquote>
+<pre><code>OuterClass.java
+</code></pre>
+
+</blockquote>
+<pre><code>package InnerClassPratice.inner;
+
+public class OuterClass {
+    InnerClass InnerObj=new InnerClass(){
+        @Override
+        public void showInner(){
+            System.out.println(&quot;执行了Outerclass中的成员对象的方法&quot;);}
+
+    };
+    public static class StaticInnerClass{
+        static public void showStaticInner(){
+            System.out.println(&quot;执行静态成员内部类静态方法&quot;);
+        }
+        public void showStaticInnerNotstatic(){
+            System.out.println(&quot;执行静态成员内部类的非静态方法&quot;);
+        }
+    }
+    public class InnerClass{
+        public void showInner(){
+            System.out.println(&quot;执行了OuterClass中的InnerClass内部类的方法&quot;);
+        }
+    }
+}
+</code></pre>
+
+<blockquote>
+<pre><code>MainDemo.java
+</code></pre>
+
+</blockquote>
+<pre><code>package InnerClassPratice.inner;
+
+public class MainDemo {
+    public static void main(String[] args) {
+
+        OuterClass.StaticInnerClass.showStaticInner();
+        new OuterClass.StaticInnerClass().showStaticInnerNotstatic();
+        new OuterClass().new InnerClass().showInner();
+        new OuterClass().InnerObj.showInner();
+
+    }
+}
+</code></pre>
+
+<p>从上述代码可见,静态类可以直接通过类名.成员内部类名进行引用</p>
+<pre><code>比如:
+new OuterClass.StaticInnerClass()
+//直接通过类名.内部类名()创建一个新的对象
+</code></pre>
+
+<p>如果静态内部类成员方法也是静态的,则可以通过类名.成员内部类名.方法名()调用方法</p>
+<pre><code>比如:
+OuterClass.StaticInnerClass.showStaticInner();
+</code></pre>
+
+<h2>局部内部类</h2>
+<p>参考局部变量,局部类与局部变量类似,都是在方法体内定义的.</p>
+<p>局部内部类就是在类内成员方法中定义的类,其作用域仅在方法体内.</p>
+<p>这种内部类的特点:</p>
+<ol>
+<li>生命周期仅仅在其所在方法执行期间</li>
+<li>不能够被权限修饰词和static修饰,这是因为他只能在方法内被访问.</li>
+</ol>
+<h3>源码:</h3>
+<blockquote>
+<pre><code>OuterClass.java
+</code></pre>
+
+</blockquote>
+<pre><code>package InnerClassPratice.innerpart;
+
+public class OuterClass {
+    void showInnerMethod(){
+        class InnerClassPart{
+            void show(){
+                System.out.println(&quot;执行了局部内部类的方法&quot;);
+            }
+        }
+        InnerClassPart A=new InnerClassPart();
+        A.show();
+
+    }
+}
+</code></pre>
+
+<p>根据上述代码,InnerClassPart类仅仅在成员方法showInnerMethod()中可访问,且执行完毕该方法后,自动消失.</p>
+<blockquote>
+<pre><code>MainDemo.java
+</code></pre>
+
+</blockquote>
+<pre><code>package InnerClassPratice.innerpart;
+
+public class MainDemo {
+    public static void main(String[] args) {
+        OuterClass obj=new OuterClass();
+        obj.showInnerMethod();
+    }
+}
+</code></pre>
+
+<hr />
+<h2>匿名内部类笔记</h2>
+<p>匿名内部类是定义在方法体或代码块之中的,匿名代表着它并没有一个名称.</p>
+<p>这种类一般使用在一次性场合,用完就舍弃,有一种临时性.也就是现定义现创建对象现用的类.</p>
+<p>实现思路是将&quot;定义&quot;,&quot;创建&quot;,&quot;使用&quot;这几条代码压缩成一条代码.</p>
+<h3>代码实现:</h3>
+<pre><code>new 父类名/接口名 (){
+重写方法()  //类的定义
+}
+</code></pre>
+
+<p>以上语句实现了一条代码定义了一个类并创建了一个对象 类和对象都没有名字.</p>
+<p>匿名内部类是通过扩展某个类或实现某个接口实现其定义的,代码实现方法就是对其方法重写.</p>
+<pre><code>new InterfaceClass(){
+@Override
+    void Method(){
+    System.out.println(&quot;重写接口方法&quot;)
+    }
+}.Method()
+</code></pre>
+
+<h3>源码：</h3>
+<blockquote>
+<pre><code>TestInterface.java 接口
+</code></pre>
+
+</blockquote>
+<pre><code>package Extend_Pratice.A3;
+
+public interface TestInterface {
+void testMethod();
+}
+</code></pre>
+
+<blockquote>
+<pre><code>MethodSpace.java 方法存放区
+</code></pre>
+
+</blockquote>
+<pre><code>package Extend_Pratice.A3;
+public class MethodSpace {
+
+/*main() 方法是static方法 只能访问静态方法和静态变量*/
+
+public static void goSwimming(TestInterface testInterface){
+testInterface.testMethod();
+}
+}
+</code></pre>
+
+<blockquote>
+<p>MainDemo.java 主方法实验</p>
+</blockquote>
+<pre><code>package Extend_Pratice.A3;
+
+public class MainDemo {
+    public static void main(String[] args) {
+        TestInterface swim = new TestInterface() {
+            @Override
+            public void testMethod() {
+            System.out.println(&quot;有名字的内部类的方法重写&quot;);
+        }
+
+        };
+        MethodSpace.goSwimming(swim);
+        MethodSpace.goSwimming(new TestInterface() {
+            @Override
+            public void testMethod() {
+                System.out.println(&quot;匿名内部类的方法重写&quot;);
+             }
+        });
+}    
+}
+</code></pre>
+
+<blockquote>
+<p>执行结果</p>
+<p>有名字的内部类的方法重写</p>
+<p>匿名内部类的方法重写</p>
+<p>Process finished with exit code 0</p>
+</blockquote>
+<hr />
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
