@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>匿名内部类</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>匿名内部类</h1>
+<p>定义在方法体或块语句中的内部类.
+其本质就是将</p>
+<ul>
+<li>&quot;继承/实现&quot;</li>
+<li>&quot;方法重写&quot;</li>
+<li>&quot;创建对象&quot;</li>
+</ul>
+<p>将这三个步骤压缩在一部执行</p>
+<h2>定义方法:</h2>
+<pre><code>new 类名或者接口名(){
+类定义
+}
+</code></pre>
+
+<p>以上语句一步实现了一个类的定义并为这个类创建了一个无名的对象.</p>
+<h2>类的特征</h2>
+<blockquote>
+<ol>
+<li>没有自己的类名,作为一个一次性使用的类.</li>
+<li>类的定义和对象的创建压缩在一句,二者同时进行.</li>
+<li>匿名内部类实现只能是继承某个类或者实现某个接口.</li>
+</ol>
+</blockquote>
+<h2>匿名内部类的使用特点:</h2>
+<blockquote>
+<ol>
+<li>没有类名</li>
+<li>没有构造方法</li>
+<li>可访问其所在类内的所有变量和方法和其所在方法体内的finall局部变量.</li>
+</ol>
+</blockquote>
+<h2>两种实现方式:</h2>
+<blockquote>
+<p>匿名内部类的实现只有两种方式:</p>
+<ol>
+<li>通过接口实现,重写其全部抽象成员(无需重写defult);</li>
+<li>通过继承父类实现,无需重写全部成员</li>
+</ol>
+</blockquote>
+<h3>1接口实现的匿名内部类:</h3>
+<blockquote>
+<p>接口</p>
+</blockquote>
+<pre><code>interface  TestInterface2{
+    void show1();
+    void show2();
+    default void show3(){
+        System.out.println(&quot;接口的defult方法&quot;);
+    };
+}
+</code></pre>
+
+<blockquote>
+<p>静态方法存放类MethodSpace</p>
+</blockquote>
+<pre><code>public class MethodSpace {
+    /*该方法调用所有TestInterface2实现类对象的所有方法*/
+    static  void   showAllMethod_Interface(TestInterface2 Obj){
+        Obj.show1();
+        Obj.show2();
+        Obj.show3();
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>测试demo</p>
+</blockquote>
+<pre><code>public class MainDemo {
+    public static void main(String[] args) {
+       TestInterface2 TempObj=new TestInterface2(){
+            @Override
+            public void show1(){
+                System.out.println(&quot;实现多成员接口创建匿名内部类的成员方法show1()&quot;);
+            }
+
+            @Override
+            public void show2() {
+                System.out.println(&quot;实现多成员接口创建的匿名内部类成员方法show2()&quot;);
+            }
+        };
+        MethodSpace.showAllMethod_Interface(TempObj);
+}
+</code></pre>
+
+<p>根据上述代码运行,可以验证实现接口的匿名内部类的特征:</p>
+<ul>
+<li>必须重写接口内的所有抽象方法</li>
+<li>多态特征,接口类型索引可以指向实现它的匿名内部类.</li>
+</ul>
+<h3>2继承父类的匿名内部类</h3>
+<blockquote>
+<p>父类</p>
+</blockquote>
+<pre><code>public class ParentClass {
+    private int i;
+    void showI(){
+        System.out.println(&quot;i的值是&quot;+i);
+    }
+    void show2(){
+        System.out.println(&quot;调用父类成员方法show2()&quot;);
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>MethodSpace静态方法存放类</p>
+</blockquote>
+<pre><code>public class MethodSpace {
+
+    static  void   showAllMethod_Parernt(ParentClass Obj){
+        Obj.showI();
+        Obj.show2();
+    }
+
+}
+</code></pre>
+
+<blockquote>
+<p>测试demo</p>
+</blockquote>
+<pre><code>public class MainDemo {
+    public static void main(String[] args) {
+    ParentClass TempObj2 = new ParentClass(){
+                int i=1;
+                @Override
+                void showI() {
+                    System.out.println(&quot;重写父类的匿名内部类方法ShowI()执行效果:&quot;);
+                }
+    };
+    TempObj2.showI();//仅执行匿名内部类重写的方法
+    MethodSpace.showAllMethod_Parernt(TempObj2);//执行了匿名内部类的所有方法
+    MethodSpace.showAllMethod_Parernt(new ParentClass(){});//不重写的匿名内部类,可以看作直接创建了一个父类对象
+}
+</code></pre>
+
+<blockquote>
+<p><strong>通过以上代码可以看出:</strong></p>
+<ul>
+<li>继承父类的匿名内部类可以不重写父类方法,也可以将父类方法全部重写.</li>
+<li>重写某一方法时,剩余成员方法全部继承父类.</li>
+<li>不重写方法时,就是直接创建了一个无索引(匿名)的成员对象.</li>
+</ul>
+</blockquote>
+<h3>匿名内部类应用与思考:</h3>
+<p>在日常开发中,我们可能会频繁的创建对象,有很多创建出的对象使用一次就不用了.</p>
+<blockquote>
+<p>在这个背景下,传统的创造对象步骤如下:</p>
+<ul>
+<li>创建子类 继承父类或实现接口</li>
+<li>重写父类成员或者接口内的所有抽象类</li>
+<li>子类创建一个对象 并用子类索引指向它</li>
+<li>通过子类名.成员名 调用</li>
+</ul>
+</blockquote>
+<p>这种创造对象的方式对于一个一次性的对象来说,过于麻烦</p>
+<p>因此,引入匿名内部类,一步完成以上操作,完成后自动回收,符合一次性使用.</p>
+<p>采用的是一种<strong><em>&quot;现用现造,用完就扔&quot;</em></strong>的思想.</p>
+<h2>Lambda表达式实现特殊匿名内部类</h2>
+<h3>实现前提</h3>
+<blockquote>
+<ul>
+<li>有一个接口(确定接口)</li>
+<li>接口中只有一个抽象方法</li>
+</ul>
+</blockquote>
+<h3>表达方式:</h3>
+<pre><code>new TestInterface1(){
+            @Override
+           public void show(){
+                System.out.println(&quot;以匿名内部类的方式重写了接口方法&quot;);
+            }
+        }.show();
+
+以上代码可以转换为如下代码:
+       TestInterface1 A=()-&gt;{
+            System.out.println(&quot;Lambda表达式通过多态引用确定接口重写接口方法&quot;);
+        };
+        A.show();
+</code></pre>
+
+<h3>思考:为什么()-&gt;{}这种表达式可以直接代替TestInterface1(){重写方法}?</h3>
+<p><strong>这是因为TestInterface A=()-&gt;{};让编译器确定了是实现哪一个接口.</strong></p>
+<blockquote>
+<p>这也就符合了Lambda表达式的前提之一有且确定一个接口.</p>
+</blockquote>
+<p><strong>Lambda表达式确定实现哪个接口后重写这个接口内的唯一方法.</strong></p>
+<blockquote>
+<p>Lambda表达式的前提有一条是实现的接口有且只有一个抽象方法.
+如果有多个抽象方法,Lambda表达式就不知道到底该重写哪个方法了.</p>
+</blockquote>
+<h3>代码实现:</h3>
+<blockquote>
+<p>静态方法存放类</p>
+</blockquote>
+<pre><code>public class MethodSpace {
+    static void DoMethod(TestInterface1 Obj){
+        Obj.show();
+    }
+    static void DoMethod2(TestInterface2 Obj){
+
+        System.out.println(Obj.show(1,2));
+    }
+    static void divideLine(){
+        System.out.println(&quot;&quot;);
+        System.out.println(&quot;==========分割线==========&quot;);
+        System.out.println(&quot;&quot;);
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>接口两个</p>
+</blockquote>
+<pre><code>interface TestInterface1{
+    void show();
+}
+interface TestInterface2{
+    int show(int a,int b);
+}
+</code></pre>
+
+<blockquote>
+<p>测试类MainDemo</p>
+</blockquote>
+<pre><code>public class MainDemo {
+    public static void main(String[] args) {
+        new TestInterface1(){
+            @Override
+           public void show(){
+                System.out.println(&quot;以匿名内部类的方式重写了接口方法&quot;);
+            }
+        }.show();
+
+        MethodSpace.divideLine();
+
+        TestInterface1 A=()-&gt;{
+            System.out.println(&quot;Lambda表达式通过多态引用确定接口重写接口方法&quot;);
+        };
+        A.show();
+
+
+
+        MethodSpace.DoMethod(()-&gt;{
+            System.out.println(&quot;Lambda表达式通过识别方法中的接口确定了Lambda重写了哪个接口的方法&quot;);
+        });
+
+        MethodSpace.divideLine();
+
+        MethodSpace.DoMethod2((int a,int b)-&gt;{
+            System.out.println(&quot;Lanmbda表达式有参有返方法重写实现&quot;);
+            return  a+b;
+        });
+
+    }
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
